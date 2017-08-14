@@ -68,57 +68,59 @@ add_shortcode( 'sp-excel-embed', 'spembed_excel_shortcode' );
 
 
 // Add ShortCake UI Support
-function register_fusion_pullquote_ui() {
-	shortcode_ui_register_for_shortcode(
-		'sp-excel-embed',
-		array(
-			'label' => 'Excel Document',
-			'listItemImage' => 'dashicons-grid-view',
-			'attrs' => array(
-				array(
-					'label' => 'Public Sharing URL',
-					'description' => 'Public Sharing URL for an Excel document in Bellevue College\'s MyBC SharePoint or OneDrive for Business',
-					'attr'  => 'source',
-					'type'  => 'url',
-					'default' => 'URL',
-					'meta' => array(
-						'style' => 'width: 100%',
+function register_sharepoint_embed_ui() {
+	if ( function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
+		shortcode_ui_register_for_shortcode(
+			'sp-excel-embed',
+			array(
+				'label' => 'Excel Document',
+				'listItemImage' => 'dashicons-grid-view',
+				'attrs' => array(
+					array(
+						'label' => 'Public Sharing URL',
+						'description' => 'Public Sharing URL for an Excel document in Bellevue College\'s MyBC SharePoint or OneDrive for Business',
+						'attr'  => 'source',
+						'type'  => 'url',
+						'default' => 'URL',
+						'meta' => array(
+							'style' => 'width: 100%',
+						),
+					),
+					array(
+						'label' => 'Width',
+						'attr' => 'width',
+						'type' => 'text',
+						'meta' => array(
+							'placeholder' => 'Recommended: 100%',
+						),
+					),
+					array(
+						'label' => 'Height',
+						'attr' => 'hight',
+						'type' => 'text',
+						'meta' => array(
+							'placeholder' => 'Recommended: 500px',
+						),
+					),
+					array(
+						'label' => 'Business Intelligence Features',
+						'attr' => 'bifeatures',
+						'type' => 'checkbox',
+					),
+					array(
+						'label' => 'Interactive Features',
+						'attr' => 'interactive',
+						'type' => 'checkbox',
+					),
+					array(
+						'label' => 'Download Button',
+						'attr' => 'download',
+						'type' => 'checkbox',
 					),
 				),
-				array(
-					'label' => 'Width',
-					'attr' => 'width',
-					'type' => 'text',
-					'meta' => array(
-						'placeholder' => 'Recommended: 100%',
-					),
-				),
-				array(
-					'label' => 'Height',
-					'attr' => 'hight',
-					'type' => 'text',
-					'meta' => array(
-						'placeholder' => 'Recommended: 500px',
-					),
-				),
-				array(
-					'label' => 'Business Intelligence Features',
-					'attr' => 'bifeatures',
-					'type' => 'checkbox',
-				),
-				array(
-					'label' => 'Interactive Features',
-					'attr' => 'interactive',
-					'type' => 'checkbox',
-				),
-				array(
-					'label' => 'Download Button',
-					'attr' => 'download',
-					'type' => 'checkbox',
-				),
-			),
-		)
-	);
+			)
+		);
+	}
 }
 
-add_action( 'init', 'register_fusion_pullquote_ui' );
+add_action( 'init', 'register_sharepoint_embed_ui' );
