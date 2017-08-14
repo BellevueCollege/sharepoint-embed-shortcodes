@@ -43,7 +43,7 @@ function spembed_excel_shortcode( $sc_config ) {
 
 		// Attempt to hide the download link if perameter set
 		if ( $sc_config['download'] ) {
-			$download_link = '<small><a href="' . $sc_config['source'] . '" target="_blank">Open this spreadsheet in a new window <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></small>';
+			$download_link = '<p><small><a href="' . $sc_config['source'] . '" target="_blank">Open this spreadsheet in a new window <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></small></p>';
 		} else {
 			$download_link = '<a class="sr-only" href="' . $sc_config['source'] . '" target="_blank">Open this spreadsheet in a new window</a>';
 		}
